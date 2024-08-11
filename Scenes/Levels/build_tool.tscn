@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0bik8ryolgfu"]
+
+[ext_resource type="Texture2D" uid="uid://do7fin0e0xg7v" path="res://Art/Tilesets/Select Tile.png" id="1_87axh"]
+[ext_resource type="Shader" path="res://Art/Shaders/select_tile_shader.gdshader" id="1_wm0g1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ue2l3"]
+shader = ExtResource("1_wm0g1")
+shader_parameter/current_color = null
+
+[node name="Build Tool" type="Node2D"]
+
+[node name="SelectTile" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_ue2l3")
+position = Vector2(-64, 222)
+texture = ExtResource("1_87axh")

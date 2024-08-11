@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfqduemimppn7"]
+[gd_scene load_steps=4 format=3 uid="uid://bfqduemimppn7"]
 
 [ext_resource type="PackedScene" uid="uid://y3ux4ls223y" path="res://Scenes/Lions/lion_template.tscn" id="1_p2c40"]
 [ext_resource type="Texture2D" uid="uid://bcqcpue7yq2tx" path="res://Art/Lions/NormalLion.png" id="2_fc5qh"]
 
-[node name="Lion_Template" instance=ExtResource("1_p2c40")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rvpy"]
+radius = 16.0
+
+[node name="NormalLion" instance=ExtResource("1_p2c40")]
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_fc5qh")
 hframes = 4
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_5rvpy")
