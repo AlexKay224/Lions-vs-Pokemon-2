@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://blc1rea4313dt"]
+[gd_scene load_steps=7 format=3 uid="uid://blc1rea4313dt"]
 
 [ext_resource type="Texture2D" uid="uid://d0m753yjg2kvk" path="res://Art/Tilesets/Town.png" id="1_06xva"]
 [ext_resource type="Script" path="res://Scripts/Level.cs" id="2_y6fnx"]
 [ext_resource type="PackedScene" uid="uid://c0bik8ryolgfu" path="res://Scenes/Levels/build_tool.tscn" id="3_1rwi4"]
+[ext_resource type="Texture2D" uid="uid://do7fin0e0xg7v" path="res://Art/Tilesets/Select Tile.png" id="4_h1pcl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_savy5"]
 texture = ExtResource("1_06xva")
@@ -24,5 +25,6 @@ tile_set = SubResource("TileSet_7mv70")
 format = 2
 layer_0/y_sort_enabled = true
 script = ExtResource("2_y6fnx")
+buildIcon = ExtResource("4_h1pcl")
 
 [node name="Build Tool" parent="." instance=ExtResource("3_1rwi4")]

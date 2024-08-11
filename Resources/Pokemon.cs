@@ -1,30 +1,22 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class Pokemon : Resource
 {
     //not all of these are used for every pokemon
     [Export]
-    public string name { get; set; }
+    public string name = "";
     [Export]
-    public string description { get; set; }
+    public string description = "";
     [Export]
-    public Texture2D texture { get; set; }
+    public Texture2D texture = null;
     [Export]
-    public float health { get; set; }
+    public float health = 0f;
     [Export]
-    public float damage { get; set; }
+    public float damage = 0f;
     [Export]
-    public float speed { get; set; }
-
-    public Pokemon() : this(null, null, null, 0f, 0f, 0f) {}
-
-    public Pokemon(string n, string desc, Texture2D t, float h, float d, float s) {
-        name = n;
-        description = desc;
-        texture = t;
-        health = h;
-        damage = d;
-        speed = s;
-    }
+    public float speed = 1f;
+    [Export]
+    public PackedScene scene;
 }
