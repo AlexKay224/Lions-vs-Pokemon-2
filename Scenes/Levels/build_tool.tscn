@@ -13,5 +13,4 @@ shader_parameter/current_color = null
 z_index = 1
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_ue2l3")
-position = Vector2(-64, 222)
 texture = ExtResource("1_87axh")

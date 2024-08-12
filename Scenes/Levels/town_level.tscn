@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxjfry46ojj44"]
+[gd_scene load_steps=4 format=3 uid="uid://dxjfry46ojj44"]
 
 [ext_resource type="PackedScene" uid="uid://blc1rea4313dt" path="res://Scenes/Levels/level_template.tscn" id="1_sgp8x"]
+[ext_resource type="Resource" uid="uid://cpkf57fgl3k01" path="res://Resources/Pokemon/Bulbasaur.tres" id="2_u5gf4"]
 
 [sub_resource type="Curve2D" id="Curve2D_rf5ue"]
 _data = {
@@ -8,34 +9,37 @@ _data = {
 }
 point_count = 2
 
-[node name="TownLevel" instance=ExtResource("1_sgp8x")]
-layer_0/tile_data = PackedInt32Array(196605, 0, 0, 327678, 0, 0, 393214, 65536, 0, 262141, 65536, 0, 131068, 65536, 0, 262142, 65536, 0, 131069, 65536, 0, -3, 65536, 0, 131070, 65536, 0, 262143, 65536, 0, 131071, 65536, 0, -2, 65536, 0, -131074, 65536, 0, -1, 65536, 0, 65536, 65536, 0, -262145, 65536, 0, -196608, 65536, 0, -65535, 65536, 0, -65536, 65536, 0, -131073, 65536, 0, 327679, 0, 0, 196607, 0, 0, 65535, 0, 0, -65537, 0, 0, -196609, 0, 0, -262144, 0, 0, -131071, 0, 0, -131072, 0, 0, 1, 0, 0, 0, 0, 0, 131072, 0, 0, 196606, 0, 0, 65534, 0, 0, -65538, 0, 0, 65533, 0, 0, 458751, 0, 0, 262144, 0, 0, 131073, 0, 0, 2, 0, 0, -131070, 0, 0, -262143, 0, 0, -393216, 0, 0, -327680, 65536, 0, -196607, 65536, 0, -65534, 65536, 0, 65537, 65536, 0, 196608, 65536, 0, 393215, 65536, 0)
+[node name="TownLevel" node_paths=PackedStringArray("buildTool") instance=ExtResource("1_sgp8x")]
+layer_0/tile_data = PackedInt32Array(131068, 65536, 0, 262141, 65536, 0, 196605, 0, 0, 131069, 65536, 0, 196606, 0, 0, 65533, 0, 0, 327678, 0, 0, 393214, 65536, 0, 458751, 0, 0, -3, 65536, 0, -65538, 0, 0, -131074, 65536, 0, -196609, 0, 0, -262145, 65536, 0, -393216, 0, 0, -327680, 65536, 0, -262143, 0, 0, -196607, 65536, 0, -131070, 0, 0, -65534, 65536, 0, 393215, 65536, 0, 262144, 0, 0, 196608, 65536, 0, 131073, 0, 0, 65537, 65536, 0, 2, 0, 0, -65535, 65536, 0, -131071, 0, 0, -196608, 65536, 0, -262144, 0, 0, -131073, 65536, 0, -65537, 0, 0, -2, 65536, 0, 65534, 0, 0, 131070, 65536, 0, 65535, 0, 0, -1, 65536, 0, -131072, 0, 0, -65536, 65536, 0, 0, 0, 0, 65536, 65536, 0, 131072, 0, 0, 262143, 65536, 0, 327679, 0, 0, 262142, 65536, 0, 131071, 65536, 0, 1, 0, 0, 196607, 0, 0)
+pokemonList = [ExtResource("2_u5gf4"), null, null, null, null, null]
+buildTool = NodePath("Build Tool")
 
 [node name="PathA" type="Path2D" parent="." index="1"]
 z_index = 1
+position = Vector2(0, 16)
 curve = SubResource("Curve2D_rf5ue")
 
 [node name="PathA2" type="Path2D" parent="." index="2"]
 z_index = 1
-position = Vector2(32, 16)
+position = Vector2(32, 32)
 curve = SubResource("Curve2D_rf5ue")
 
 [node name="PathA3" type="Path2D" parent="." index="3"]
 z_index = 1
-position = Vector2(64, 32)
+position = Vector2(64, 48)
 curve = SubResource("Curve2D_rf5ue")
 
 [node name="PathA4" type="Path2D" parent="." index="4"]
 z_index = 1
-position = Vector2(96, 48)
+position = Vector2(96, 64)
 curve = SubResource("Curve2D_rf5ue")
 
 [node name="PathA5" type="Path2D" parent="." index="5"]
 z_index = 1
-position = Vector2(128, 64)
+position = Vector2(128, 80)
 curve = SubResource("Curve2D_rf5ue")
 
 [node name="PathA6" type="Path2D" parent="." index="6"]
 z_index = 1
-position = Vector2(160, 79)
+position = Vector2(160, 95)
 curve = SubResource("Curve2D_rf5ue")

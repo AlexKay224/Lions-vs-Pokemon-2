@@ -2,6 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public partial class Level : TileMap
 {
@@ -17,7 +18,7 @@ public partial class Level : TileMap
 	public bool canBuild;
 	public bool inMenu;
 
-	public Vector2 currentTileLoc;
+	public Vector2I currentTileLoc;
 
 	//Need to refactor at some point to allow tower selection
 	[Export]
@@ -31,6 +32,7 @@ public partial class Level : TileMap
 
 	[Export]
 	public Node2D buildTool;
+	private ShaderMaterial sm;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -39,6 +41,7 @@ public partial class Level : TileMap
 		canBuild = false;
 		inMenu = false;
 		buildTool = GetNode<Node2D>("Build Tool");
+		sm = (ShaderMaterial) buildTool.GetNode<Sprite2D>("SelectTile").Material;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,13 +55,26 @@ public partial class Level : TileMap
 
 		if(isBuilding) {
 			updateBuildTool();
-			if(Input.IsActionJustPressed("MouseEnter")) buildPokemon();
+			//if(Input.IsActionJustPressed("MouseEnter")) buildPokemon();
 		}
 	}
 
 	public void updateBuildTool() {
 		Vector2 mousePos = GetGlobalMousePosition();
-		currentTileLoc = this.LocalToMap(mousePos);
-		buildTool.GlobalPosition = this.MapToLocal((Vector2I) currentTileLoc);
+		currentTileLoc = LocalToMap(ToLocal(mousePos));
+		buildTool.GlobalPosition = ToGlobal(MapToLocal(currentTileLoc)) + new Vector2(32, 0);
+
+		int cellID = GetCellSourceId(0, currentTileLoc);
+		if (cellID == 0 && current_color != green) {
+			current_color = green;
+			canBuild = true;
+			sm.SetShaderParameter("current_color", current_color);
+		}
+
+		if (cellID != 0 && current_color != red) {
+			current_color = red;
+			canBuild = false;
+			sm.SetShaderParameter("current_color", current_color);
+		}
 	}
 }
