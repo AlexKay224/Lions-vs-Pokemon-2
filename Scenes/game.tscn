@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf8k23spapwww"]
+[gd_scene load_steps=3 format=3 uid="uid://bf8k23spapwww"]
 
 [ext_resource type="PackedScene" uid="uid://dxjfry46ojj44" path="res://Scenes/Levels/town_level.tscn" id="1_2eccu"]
+[ext_resource type="PackedScene" uid="uid://daev7droxt3p" path="res://Scenes/UI/pokemon_menu.tscn" id="2_xx8bo"]
 
 [node name="Game" type="Node2D"]
 
-[node name="TownLevel" parent="." instance=ExtResource("1_2eccu")]
+[node name="TownLevel" parent="." node_paths=PackedStringArray("UILayer") instance=ExtResource("1_2eccu")]
+UILayer = NodePath("../UILayer")
 
 [node name="Camera2D" type="Camera2D" parent="TownLevel"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PokemonMenu" parent="UILayer" instance=ExtResource("2_xx8bo")]

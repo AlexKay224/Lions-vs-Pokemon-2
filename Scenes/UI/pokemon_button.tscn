@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7cf675u7lfrn"]
+
+[ext_resource type="Theme" uid="uid://dxrmp8bcxcii8" path="res://Resources/Pokemon_Button_Theme.tres" id="1_1jiso"]
+[ext_resource type="Script" path="res://Scripts/UI/pokemon_button.cs" id="1_6ejgb"]
+
+[node name="PokemonButton" type="Button"]
+custom_minimum_size = Vector2(96, 96)
+size_flags_horizontal = 4
+theme = ExtResource("1_1jiso")
+script = ExtResource("1_6ejgb")
+
+[node name="PokemonImage" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.083
+anchor_right = 1.083
+anchor_bottom = 1.0
+offset_left = -0.0319996
+offset_right = 0.0319977
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="." to="." method="onButtonDown"]
