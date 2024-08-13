@@ -3,7 +3,6 @@ using System;
 
 public partial class pokemon_button : Button
 {
-
 	private Pokemon pokemonResource;
 	private SignalHandlers _signalHandlers;
 	// Called when the node enters the scene tree for the first time.
@@ -11,6 +10,7 @@ public partial class pokemon_button : Button
 	{
 		GetNode<TextureRect>("PokemonImage").Texture = pokemonResource.texture;
 		_signalHandlers = GetNode<SignalHandlers>("/root/SignalHandlers");
+		GetNode<Label>("PokemonCost").Text = pokemonResource.cost.ToString();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

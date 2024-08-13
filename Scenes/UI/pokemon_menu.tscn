@@ -28,11 +28,11 @@ patch_margin_bottom = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -1.233
+anchor_top = -2.372
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.0740013
-offset_bottom = 0.0550003
+anchor_bottom = 0.977
+offset_top = -0.00399017
+offset_bottom = -0.0110016
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 16

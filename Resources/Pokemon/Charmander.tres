@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Pokemon" load_steps=3 format=3 uid="uid://xhmjmstayfyv"]
+
+[ext_resource type="Script" path="res://Resources/Pokemon.cs" id="1_rdsg7"]
+[ext_resource type="Texture2D" uid="uid://c3jxdr1ry0mxv" path="res://Art/Pokemon/CharmanderMENU.png" id="2_bqceu"]
+
+[resource]
+script = ExtResource("1_rdsg7")
+name = "Charmander"
+description = "Truly a fire-breathing lizard of all time. Their ember attack is a reliable, albeit unremarkable, ranged attack"
+texture = ExtResource("2_bqceu")
+health = 40.0
+damage = 5.0
+speed = 2.0
+sceneName = "charmander"
+cost = 3
+evoCost = 5
+attackSpeed = 5.0

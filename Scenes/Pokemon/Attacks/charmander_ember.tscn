@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bui4v37eq0x3f"]
+
+[ext_resource type="PackedScene" uid="uid://drxvpavy5tgcn" path="res://Scenes/Pokemon/Attacks/projectile.tscn" id="1_ttb4y"]
+
+[node name="Ember" instance=ExtResource("1_ttb4y")]

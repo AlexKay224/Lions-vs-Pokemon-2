@@ -16,7 +16,7 @@ public partial class Pokemon : Resource
     [Export]
     public float damage = 0f;
     [Export]
-    public float speed = 1f;
+    public float speed = 1f; //speed of attacking
     [Export]
     public string sceneName;
     [Export]
@@ -25,4 +25,6 @@ public partial class Pokemon : Resource
     public Pokemon evolution;
     [Export]
     public int evoCost;
+    [Export]
+    public float attackSpeed; //speed of attack travel
 }
