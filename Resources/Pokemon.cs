@@ -18,5 +18,11 @@ public partial class Pokemon : Resource
     [Export]
     public float speed = 1f;
     [Export]
-    public PackedScene scene;
+    public string sceneName;
+    [Export]
+    public int cost;
+    [Export]
+    public Pokemon evolution;
+    [Export]
+    public int evoCost;
 }

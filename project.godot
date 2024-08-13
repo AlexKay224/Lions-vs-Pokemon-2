@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 [autoload]
 
 SignalHandlers="*res://Scripts/SignalHandlers.cs"
+GameManager="*res://Scripts/GameManager.cs"
 
 [dotnet]
 

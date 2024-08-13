@@ -1,12 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1qvnnae4gs6l"]
+[gd_scene load_steps=6 format=3 uid="uid://b1qvnnae4gs6l"]
 
 [ext_resource type="PackedScene" uid="uid://bho5j447x2vqe" path="res://Scenes/Pokemon/pokemon_template.tscn" id="1_3yj7w"]
+[ext_resource type="Resource" uid="uid://cpkf57fgl3k01" path="res://Resources/Pokemon/Bulbasaur.tres" id="2_2iru1"]
 [ext_resource type="Texture2D" uid="uid://di47m2216ab8e" path="res://Art/Pokemon/Bulbasaur.png" id="2_en6to"]
+[ext_resource type="PackedScene" uid="uid://capxtq3dl4k6c" path="res://Scenes/Pokemon/Components/spawn_oran_component.tscn" id="3_ht4c3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fbr8w"]
+radius = 9.0
 
 [node name="Bulbasaur" instance=ExtResource("1_3yj7w")]
+pokemonData = ExtResource("2_2iru1")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_en6to")
 hframes = 11
 vframes = 8
 frame = 33
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_fbr8w")
+
+[node name="SpawnOranComponent" parent="." index="3" node_paths=PackedStringArray("pokeRef") instance=ExtResource("3_ht4c3")]
+pokeRef = NodePath("..")

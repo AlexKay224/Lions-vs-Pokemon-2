@@ -34,3 +34,5 @@ buildIcon = ExtResource("4_h1pcl")
 [node name="Build Tool" parent="." instance=ExtResource("3_1rwi4")]
 
 [node name="PokemonContainer" type="Node" parent="."]
+
+[node name="ResourceContainer" type="Node" parent="."]

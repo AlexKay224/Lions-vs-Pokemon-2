@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bho5j447x2vqe"]
 
-[ext_resource type="Script" path="res://Scenes/Pokemon/PokemonScene.cs" id="1_bo1ef"]
+[ext_resource type="Script" path="res://Scripts/Pokemon/PokemonScene.cs" id="1_c7llk"]
 
 [node name="Pokemon_Template" type="StaticBody2D"]
-script = ExtResource("1_bo1ef")
+script = ExtResource("1_c7llk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

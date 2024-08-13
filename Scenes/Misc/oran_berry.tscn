@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://lbxof0fenvpc"]
+
+[ext_resource type="Texture2D" uid="uid://gjgjuuhdjcl" path="res://Art/Misc/Oran.png" id="1_7uqri"]
+[ext_resource type="Script" path="res://Scripts/Misc/OranBerry.cs" id="2_yxi6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3k7l"]
+
+[node name="OranBerry" type="Sprite2D"]
+position = Vector2(-36, -53)
+texture = ExtResource("1_7uqri")
+script = ExtResource("2_yxi6c")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 4
+collision_layer = 3
+collision_mask = 3
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_k3k7l")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="onBerryEntered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="onBerryExited"]

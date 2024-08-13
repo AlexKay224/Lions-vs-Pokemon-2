@@ -38,9 +38,14 @@ public partial class Level : TileMap
 	[Export]
 	public CanvasLayer UILayer;
 
+	[Export]
+	public Node resourceContainer;
+
 	private PackedScene pokemonButton;
 
 	private SignalHandlers _signalHandlers;
+
+	private GameManager _gameManager;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -64,6 +69,10 @@ public partial class Level : TileMap
 		_signalHandlers.PassPokemonResource += setCurrentPokemon;
 		_signalHandlers.ToggleInMenuOn += inMenuOn;
 		_signalHandlers.ToggleInMenuOff += inMenuOff;
+		_signalHandlers.EmptyFaintedPokemonTile += resetTile;
+		_signalHandlers.SendOranBerryToContainer += spawnOranBerry;
+
+		_gameManager = GetNode<GameManager>("/root/GameManager");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -101,14 +110,17 @@ public partial class Level : TileMap
 	}
 
 	public void buildPokemon() {
-		if(canBuild && !inMenu && currentPokemon != null) {
+		if(canBuild && !inMenu && currentPokemon != null && currentPokemon.cost <= _gameManager.GetOranCurrency()) {
 			int tileStyle = GetCellAtlasCoords(0, currentTileLoc).X;
 			if(tileStyle == 0) SetCell(0, currentTileLoc, 0, new Vector2I(0, 1), 0);
 			else if(tileStyle == 1) SetCell(0, currentTileLoc, 0, new Vector2I(1, 1), 0);
 
-			Node2D newPokemon = currentPokemon.scene.Instantiate<Node2D>();
+			PokemonScene newPokemon = ResourceLoader.Load<PackedScene>("res://Scenes/Pokemon/" + currentPokemon.sceneName + ".tscn").Instantiate<PokemonScene>();
 			newPokemon.GlobalPosition = ToGlobal(MapToLocal(currentTileLoc));
+			newPokemon.tileLoc = currentTileLoc;
 			GetNode<Node>("PokemonContainer").AddChild(newPokemon);
+
+			_gameManager.reduceOranCurrency(currentPokemon.cost);
 
 		}
 	}
@@ -125,5 +137,18 @@ public partial class Level : TileMap
 	public void inMenuOff() {
 		Debug.WriteLine("switiching menu off");
 		inMenu = false;
+	}
+
+	public void resetTile(Vector2I tile) {
+		int tileStyle = GetCellAtlasCoords(0, tile).X;
+		if(tileStyle == 0) SetCell(0, tile, 0, new Vector2I(0, 0), 0);
+		else if(tileStyle == 1) SetCell(0, tile, 0, new Vector2I(1, 0), 0);
+	}
+
+	public void spawnOranBerry(OranBerry oran) {
+		resourceContainer.AddChild(oran);
+		if(resourceContainer.GetChildCount() >= 51) {
+			resourceContainer.GetChild(0).QueueFree();
+		}
 	}
 }

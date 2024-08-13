@@ -10,4 +10,12 @@ public partial class SignalHandlers : Node
 	public delegate void ToggleInMenuOnEventHandler();
 	[Signal]
 	public delegate void ToggleInMenuOffEventHandler();
+	[Signal]
+	public delegate void AddOranBerryEventHandler(int num);
+	[Signal]
+	public delegate void UpdateOranBerryTallyEventHandler(int currentNum); 
+	[Signal]
+	public delegate void EmptyFaintedPokemonTileEventHandler(Vector2I tileLoc);
+	[Signal]
+	public delegate void SendOranBerryToContainerEventHandler(OranBerry oranBerry);
 }

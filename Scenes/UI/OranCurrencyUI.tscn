@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwl1b67oxfv8s"]
+
+[ext_resource type="Script" path="res://Scripts/UI/CurrencyUI.cs" id="1_br8uj"]
+[ext_resource type="Texture2D" uid="uid://gjgjuuhdjcl" path="res://Art/Misc/Oran.png" id="2_5kid8"]
+
+[node name="OranCurrencyUI" type="Control" node_paths=PackedStringArray("oranBerryCount")]
+layout_mode = 3
+anchor_right = 0.056
+anchor_bottom = 0.198
+offset_right = -0.512001
+offset_bottom = -0.304016
+mouse_filter = 1
+script = ExtResource("1_br8uj")
+oranBerryCount = NodePath("OranBerryCount")
+
+[node name="OranBerryImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1875
+anchor_right = 0.8125
+anchor_bottom = 0.3125
+grow_horizontal = 2
+texture = ExtResource("2_5kid8")
+metadata/_edit_use_anchors_ = true
+
+[node name="OranBerryTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Oran Berries"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="OranBerryCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.820313
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
