@@ -42,6 +42,9 @@ _data = {
 }
 
 [node name="Lion_Template" type="PathFollow2D"]
+v_offset = -8.0
+rotates = false
+loop = false
 script = ExtResource("1_13b40")
 
 [node name="Sprite" type="Sprite2D" parent="."]

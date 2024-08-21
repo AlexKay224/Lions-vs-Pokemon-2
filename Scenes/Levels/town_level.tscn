@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxjfry46ojj44"]
+[gd_scene load_steps=6 format=3 uid="uid://dxjfry46ojj44"]
 
 [ext_resource type="PackedScene" uid="uid://blc1rea4313dt" path="res://Scenes/Levels/level_template.tscn" id="1_sgp8x"]
 [ext_resource type="Resource" uid="uid://cpkf57fgl3k01" path="res://Resources/Pokemon/Bulbasaur.tres" id="2_u5gf4"]
 [ext_resource type="Resource" uid="uid://xhmjmstayfyv" path="res://Resources/Pokemon/Charmander.tres" id="3_p062d"]
+[ext_resource type="PackedScene" uid="uid://bfqduemimppn7" path="res://Scenes/Lions/NormalLion.tscn" id="4_kyt5y"]
 
 [sub_resource type="Curve2D" id="Curve2D_rf5ue"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 32, -96, 0, 0, 0, 0, -192, 16)
+"points": PackedVector2Array(0, 0, 0, 0, 32, -96, 0, 0, 0, 0, -256, 48)
 }
 point_count = 2
 
@@ -20,6 +21,13 @@ resourceContainer = NodePath("ResourceContainer")
 z_index = 1
 position = Vector2(0, 16)
 curve = SubResource("Curve2D_rf5ue")
+
+[node name="NormalLion" parent="PathA" index="0" instance=ExtResource("4_kyt5y")]
+position = Vector2(9.60705, -92.8035)
+progress = 25.044
+
+[node name="NormalLion2" parent="PathA" index="1" instance=ExtResource("4_kyt5y")]
+position = Vector2(32, -104)
 
 [node name="PathA2" type="Path2D" parent="." index="2"]
 z_index = 1

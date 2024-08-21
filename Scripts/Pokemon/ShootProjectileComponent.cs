@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 public partial class ShootProjectileComponent : Node2D
@@ -23,12 +24,13 @@ public partial class ShootProjectileComponent : Node2D
 	{
 		timer.WaitTime = pokeRes.speed;
 		canShoot = true;
+		targetList = new List<Lion>();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(canShoot && !targetList.Any()) Shoot();
+		if(canShoot && targetList.Any()) Shoot();
 	}
 
 	public void onTimeout() {
@@ -56,7 +58,7 @@ public partial class ShootProjectileComponent : Node2D
 		Projectile proj = projectileScene.Instantiate<Projectile>();
 		proj.damage = pokeRes.damage;
 		proj.speed = pokeRes.attackSpeed;
-		proj.direction = targetList[0].GlobalPosition - GlobalPosition;
+		proj.direction = (targetList[0].GlobalPosition - GlobalPosition).Normalized() * proj.speed;
 		AddChild(proj);
 	}
 

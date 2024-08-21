@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Pokemon/CharmanderEmber.cs" id="2_ocqck"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_gyywi"]
-b = Vector2(4, -5)
+b = Vector2(4, -4)
 
 [sub_resource type="Animation" id="Animation_5cb4e"]
 resource_name = "flicker"
@@ -49,6 +49,7 @@ _data = {
 script = ExtResource("2_ocqck")
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-3, 2)
 shape = SubResource("SegmentShape2D_gyywi")
 
 [node name="ProjectileSprite" parent="." index="1"]

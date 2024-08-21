@@ -12,7 +12,7 @@ public partial class Projectile : Area2D
 
 	public override void _Ready()
 	{
-		direction *= speed;
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

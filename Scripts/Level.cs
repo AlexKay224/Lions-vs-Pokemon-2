@@ -130,12 +130,10 @@ public partial class Level : TileMap
 	}
 
 	public void inMenuOn() {
-		Debug.WriteLine("switching menu on");
 		inMenu = true;
 	}
 
 	public void inMenuOff() {
-		Debug.WriteLine("switiching menu off");
 		inMenu = false;
 	}
 

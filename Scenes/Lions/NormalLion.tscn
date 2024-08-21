@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfqduemimppn7"]
+[gd_scene load_steps=5 format=3 uid="uid://bfqduemimppn7"]
 
 [ext_resource type="PackedScene" uid="uid://y3ux4ls223y" path="res://Scenes/Lions/lion_template.tscn" id="1_p2c40"]
 [ext_resource type="Texture2D" uid="uid://bcqcpue7yq2tx" path="res://Art/Lions/NormalLion.png" id="2_fc5qh"]
+[ext_resource type="Resource" uid="uid://cnal2ec4m6gsk" path="res://Resources/Lion/NormalLion.tres" id="2_uraim"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rvpy"]
 radius = 16.0
 
-[node name="NormalLion" instance=ExtResource("1_p2c40")]
+[node name="NormalLion" node_paths=PackedStringArray("animPlayer") instance=ExtResource("1_p2c40")]
+lResource = ExtResource("2_uraim")
+animPlayer = NodePath("AnimationPlayer")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_fc5qh")
