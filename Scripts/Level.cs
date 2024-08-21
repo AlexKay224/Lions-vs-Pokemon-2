@@ -40,7 +40,9 @@ public partial class Level : TileMap
 
 	[Export]
 	public Node resourceContainer;
-
+	
+	[Export]
+	public Path2D[] paths;
 	private PackedScene pokemonButton;
 
 	private SignalHandlers _signalHandlers;

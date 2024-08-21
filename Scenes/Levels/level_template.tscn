@@ -23,16 +23,19 @@ tile_shape = 1
 tile_size = Vector2i(64, 32)
 sources/0 = SubResource("TileSetAtlasSource_savy5")
 
-[node name="level_template" type="TileMap"]
+[node name="level_template" type="TileMap" node_paths=PackedStringArray("paths")]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_7mv70")
 format = 2
 layer_0/y_sort_enabled = true
 script = ExtResource("2_y6fnx")
 buildIcon = ExtResource("4_h1pcl")
+paths = []
 
 [node name="Build Tool" parent="." instance=ExtResource("3_1rwi4")]
 
 [node name="PokemonContainer" type="Node" parent="."]
 
 [node name="ResourceContainer" type="Node" parent="."]
+
+[node name="PathsContainer" type="Node" parent="."]

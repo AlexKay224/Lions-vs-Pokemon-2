@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf8k23spapwww"]
+[gd_scene load_steps=6 format=3 uid="uid://bf8k23spapwww"]
 
 [ext_resource type="PackedScene" uid="uid://dxjfry46ojj44" path="res://Scenes/Levels/town_level.tscn" id="1_2eccu"]
 [ext_resource type="PackedScene" uid="uid://daev7droxt3p" path="res://Scenes/UI/pokemon_menu.tscn" id="2_xx8bo"]
 [ext_resource type="PackedScene" uid="uid://cwl1b67oxfv8s" path="res://Scenes/UI/OranCurrencyUI.tscn" id="3_puunw"]
+[ext_resource type="Script" path="res://Scripts/LionSpawner.cs" id="4_vgmln"]
+[ext_resource type="Resource" uid="uid://tcxyu8rsyq2l" path="res://Resources/Stage/TestStage1.tres" id="5_wq3vy"]
 
 [node name="Game" type="Node2D"]
 
-[node name="TownLevel" parent="." node_paths=PackedStringArray("UILayer") instance=ExtResource("1_2eccu")]
+[node name="TownLevel" parent="." node_paths=PackedStringArray("UILayer", "paths") instance=ExtResource("1_2eccu")]
 UILayer = NodePath("../UILayer")
+paths = []
 
 [node name="Camera2D" type="Camera2D" parent="TownLevel"]
 
@@ -18,3 +21,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="OranCurrencyUI" parent="UILayer" instance=ExtResource("3_puunw")]
 metadata/_edit_use_anchors_ = true
+
+[node name="LionSpawner" type="Node" parent="." node_paths=PackedStringArray("environment", "timer", "waveDelay")]
+script = ExtResource("4_vgmln")
+environment = NodePath("../TownLevel")
+level = ExtResource("5_wq3vy")
+timer = NodePath("Timer")
+waveDelay = NodePath("WaveDelay")
+
+[node name="Timer" type="Timer" parent="LionSpawner"]
+
+[node name="WaveDelay" type="Timer" parent="LionSpawner"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="LionSpawner/Timer" to="LionSpawner" method="onTimeout"]
+[connection signal="timeout" from="LionSpawner/WaveDelay" to="LionSpawner" method="IterateThroughWave"]
