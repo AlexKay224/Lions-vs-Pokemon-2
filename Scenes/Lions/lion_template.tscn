@@ -1,19 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://y3ux4ls223y"]
+[gd_scene load_steps=6 format=3 uid="uid://y3ux4ls223y"]
+
+[ext_resource type="Script" path="res://Scripts/Lions/Lion.cs" id="1_13b40"]
+[ext_resource type="Script" path="res://Scripts/Lions/LionHitbox.cs" id="2_1kgd3"]
 
 [sub_resource type="Animation" id="Animation_slg3k"]
 resource_name = "walk"
 length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_wfy8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xc1b"]
 _data = {
+"RESET": SubResource("Animation_wfy8m"),
 "walk": SubResource("Animation_slg3k")
 }
 
 [node name="Lion_Template" type="PathFollow2D"]
+script = ExtResource("1_13b40")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_1kgd3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 

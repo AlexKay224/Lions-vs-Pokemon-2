@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LionResource" load_steps=2 format=3 uid="uid://cnal2ec4m6gsk"]
+
+[ext_resource type="Script" path="res://Resources/LionResource.cs" id="1_xm0jh"]
+
+[resource]
+script = ExtResource("1_xm0jh")
+health = 20.0
+damage = 4.0
+resistances = Array[int]([])
+Speed = 5.0

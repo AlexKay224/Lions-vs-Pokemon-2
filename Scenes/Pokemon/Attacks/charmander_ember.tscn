@@ -1,5 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://bui4v37eq0x3f"]
+[gd_scene load_steps=8 format=3 uid="uid://bui4v37eq0x3f"]
 
 [ext_resource type="PackedScene" uid="uid://drxvpavy5tgcn" path="res://Scenes/Pokemon/Attacks/projectile.tscn" id="1_ttb4y"]
+[ext_resource type="Texture2D" uid="uid://de8jehsu3wmrx" path="res://Art/Misc/Charmander_Ember.png" id="2_l4mkr"]
+[ext_resource type="Script" path="res://Scripts/Pokemon/CharmanderEmber.cs" id="2_ocqck"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gyywi"]
+b = Vector2(4, -5)
+
+[sub_resource type="Animation" id="Animation_5cb4e"]
+resource_name = "flicker"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_qfat3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0a08"]
+_data = {
+"RESET": SubResource("Animation_qfat3"),
+"flicker": SubResource("Animation_5cb4e")
+}
 
 [node name="Ember" instance=ExtResource("1_ttb4y")]
+script = ExtResource("2_ocqck")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("SegmentShape2D_gyywi")
+
+[node name="ProjectileSprite" parent="." index="1"]
+texture = ExtResource("2_l4mkr")
+hframes = 2
+
+[node name="AnimationPlayer" parent="ProjectileSprite" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_c0a08")
+}

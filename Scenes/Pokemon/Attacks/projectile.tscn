@@ -1,12 +1,21 @@
 [gd_scene load_steps=2 format=3 uid="uid://drxvpavy5tgcn"]
 
-[ext_resource type="Script" path="res://Scripts/Pokemon/projectile.cs" id="1_ottsw"]
+[ext_resource type="Script" path="res://Scripts/Pokemon/Projectile.cs" id="1_0grsk"]
 
-[node name="Projectile" type="Sprite2D"]
-script = ExtResource("1_ottsw")
+[node name="Projectile" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0grsk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ProjectileSprite" type="Sprite2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProjectileSprite"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="onHitLion"]
+[connection signal="timeout" from="Timer" to="." method="onTimeout"]
