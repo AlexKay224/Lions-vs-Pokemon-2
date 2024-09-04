@@ -117,7 +117,7 @@ public partial class Level : TileMap
 			if(tileStyle == 0) SetCell(0, currentTileLoc, 0, new Vector2I(0, 1), 0);
 			else if(tileStyle == 1) SetCell(0, currentTileLoc, 0, new Vector2I(1, 1), 0);
 
-			PokemonScene newPokemon = ResourceLoader.Load<PackedScene>("res://Scenes/Pokemon/" + currentPokemon.sceneName + ".tscn").Instantiate<PokemonScene>();
+			PokemonScene newPokemon = ResourceLoader.Load<PackedScene>("res://Scenes/Pokemon/Pokemon/" + currentPokemon.sceneName + ".tscn").Instantiate<PokemonScene>();
 			newPokemon.GlobalPosition = ToGlobal(MapToLocal(currentTileLoc));
 			newPokemon.tileLoc = currentTileLoc;
 			GetNode<Node>("PokemonContainer").AddChild(newPokemon);

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Pokemon" load_steps=3 format=3 uid="uid://c3mr78d66a0rj"]
+
+[ext_resource type="Script" path="res://Resources/Pokemon.cs" id="1_7tedp"]
+[ext_resource type="Texture2D" uid="uid://c1oc3y7cidlwv" path="res://Art/Pokemon/SquirtleMENU.png" id="2_xuinc"]
+
+[resource]
+script = ExtResource("1_7tedp")
+name = "Squirtle"
+description = "A hard-shelled little turtle hero. Withdraws into its shell to block the lions"
+texture = ExtResource("2_xuinc")
+health = 200.0
+damage = 0.0
+speed = 0.0
+sceneName = "squirtle"
+cost = 2
+evoCost = 5
+attackSpeed = 0.0

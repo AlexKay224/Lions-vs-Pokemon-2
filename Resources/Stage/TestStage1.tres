@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Stage" load_steps=6 format=3 uid="uid://tcxyu8rsyq2l"]
+[gd_resource type="Resource" script_class="Stage" load_steps=8 format=3 uid="uid://tcxyu8rsyq2l"]
 
 [ext_resource type="Script" path="res://Resources/Stage.cs" id="1_fls2u"]
 [ext_resource type="PackedScene" uid="uid://bfqduemimppn7" path="res://Scenes/Lions/NormalLion.tscn" id="2_mu28l"]
@@ -7,14 +7,24 @@
 [sub_resource type="Resource" id="Resource_jur4v"]
 script = ExtResource("2_t25c2")
 lion = ExtResource("2_mu28l")
-quantity = 3
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_0kgxh"]
 script = ExtResource("2_t25c2")
 lion = ExtResource("2_mu28l")
-quantity = 4
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_k0fk1"]
+script = ExtResource("2_t25c2")
+lion = ExtResource("2_mu28l")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_m4efu"]
+script = ExtResource("2_t25c2")
+lion = ExtResource("2_mu28l")
+quantity = 3
 
 [resource]
 script = ExtResource("1_fls2u")
-wave = Array[Object]([SubResource("Resource_jur4v"), SubResource("Resource_0kgxh")])
-waitTimes = Array[float]([4.0, 6.0])
+wave = Array[Object]([SubResource("Resource_jur4v"), SubResource("Resource_0kgxh"), SubResource("Resource_k0fk1"), SubResource("Resource_m4efu")])
+waitTimes = Array[float]([30.0, 20.0, 15.0, 15.0])

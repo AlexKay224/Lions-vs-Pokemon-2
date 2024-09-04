@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://pwlm27ipwkn2"]
+
+[ext_resource type="PackedScene" uid="uid://bho5j447x2vqe" path="res://Scenes/Pokemon/pokemon_template.tscn" id="1_y8olk"]
+[ext_resource type="Resource" uid="uid://xhmjmstayfyv" path="res://Resources/Pokemon/Charmander.tres" id="2_os6lc"]
+[ext_resource type="Texture2D" uid="uid://djtns08u7so1b" path="res://Art/Pokemon/Charmander.png" id="3_dkw1w"]
+[ext_resource type="PackedScene" uid="uid://c2vforb00r8cs" path="res://Scenes/Pokemon/Components/shoot_projectile_component.tscn" id="4_82imk"]
+[ext_resource type="PackedScene" uid="uid://bui4v37eq0x3f" path="res://Scenes/Pokemon/Attacks/charmander_ember.tscn" id="5_sey8k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_roqis"]
+radius = 6.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1nv4x"]
+b = Vector2(196, -96)
+
+[node name="Charmander" instance=ExtResource("1_y8olk")]
+pokemonData = ExtResource("2_os6lc")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_dkw1w")
+hframes = 11
+vframes = 8
+frame = 33
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(3, -7)
+shape = SubResource("CircleShape2D_roqis")
+
+[node name="ShootProjectileComponent" parent="." index="3" node_paths=PackedStringArray("range") instance=ExtResource("4_82imk")]
+position = Vector2(7, -7)
+projectileScene = ExtResource("5_sey8k")
+range = NodePath("Range")
+pokeRes = ExtResource("2_os6lc")
+
+[node name="Range" type="Area2D" parent="ShootProjectileComponent" index="1"]
+position = Vector2(-1, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootProjectileComponent/Range" index="0"]
+shape = SubResource("SegmentShape2D_1nv4x")
+
+[connection signal="area_entered" from="ShootProjectileComponent/Range" to="ShootProjectileComponent" method="onLionEntered"]
+[connection signal="area_exited" from="ShootProjectileComponent/Range" to="ShootProjectileComponent" method="onLionExited"]

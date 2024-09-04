@@ -33,7 +33,7 @@ public partial class PokemonScene : StaticBody2D
 
 	public void Die(Lion l) {
 		_signalHandlers.EmitSignal(nameof(SignalHandlers.EmptyFaintedPokemonTile), tileLoc);
-		_signalHandlers.EmitSignal(nameof(SignalHandlers.PokemonFainted), this);
+		if(IsInstanceValid(this)) _signalHandlers.EmitSignal(nameof(SignalHandlers.PokemonFainted), this);
 		QueueFree();
 	}
 }

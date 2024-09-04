@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjq40tellaod7"]
+
+[ext_resource type="PackedScene" uid="uid://bho5j447x2vqe" path="res://Scenes/Pokemon/pokemon_template.tscn" id="1_aic5y"]
+[ext_resource type="Texture2D" uid="uid://b8nlh1e1io0b3" path="res://Art/Pokemon/Squirtle.png" id="2_1hyr0"]
+[ext_resource type="Resource" uid="uid://c3mr78d66a0rj" path="res://Resources/Pokemon/Squirtle.tres" id="2_w0lwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xj7ot"]
+radius = 5.0
+
+[node name="Squirtle" instance=ExtResource("1_aic5y")]
+pokemonData = ExtResource("2_w0lwf")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_1hyr0")
+hframes = 8
+vframes = 8
+frame = 31
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(3, -7)
+shape = SubResource("CircleShape2D_xj7ot")
