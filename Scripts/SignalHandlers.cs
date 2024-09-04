@@ -18,4 +18,6 @@ public partial class SignalHandlers : Node
 	public delegate void EmptyFaintedPokemonTileEventHandler(Vector2I tileLoc);
 	[Signal]
 	public delegate void SendOranBerryToContainerEventHandler(OranBerry oranBerry);
+	[Signal]
+	public delegate void PokemonFaintedEventHandler(PokemonScene fainted);
 }

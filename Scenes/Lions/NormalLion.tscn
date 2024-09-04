@@ -7,9 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rvpy"]
 radius = 16.0
 
-[node name="NormalLion" node_paths=PackedStringArray("animPlayer") instance=ExtResource("1_p2c40")]
+[node name="NormalLion" instance=ExtResource("1_p2c40")]
 lResource = ExtResource("2_uraim")
-animPlayer = NodePath("AnimationPlayer")
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_fc5qh")

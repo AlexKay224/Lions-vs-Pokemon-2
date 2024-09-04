@@ -17,4 +17,4 @@ quantity = 4
 [resource]
 script = ExtResource("1_fls2u")
 wave = Array[Object]([SubResource("Resource_jur4v"), SubResource("Resource_0kgxh")])
-waitTimes = Array[float]([15.0, 6.0])
+waitTimes = Array[float]([4.0, 6.0])

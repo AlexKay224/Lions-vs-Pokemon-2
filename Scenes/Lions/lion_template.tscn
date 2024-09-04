@@ -41,11 +41,13 @@ _data = {
 "walk": SubResource("Animation_slg3k")
 }
 
-[node name="Lion_Template" type="PathFollow2D"]
+[node name="Lion_Template" type="PathFollow2D" node_paths=PackedStringArray("animPlayer", "attackTimer")]
 v_offset = -8.0
 rotates = false
 loop = false
 script = ExtResource("1_13b40")
+animPlayer = NodePath("AnimationPlayer")
+attackTimer = NodePath("AttackTimer")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
@@ -60,3 +62,8 @@ script = ExtResource("2_1kgd3")
 libraries = {
 "": SubResource("AnimationLibrary_6xc1b")
 }
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Hitbox" to="." method="onCollidePokemon"]
+[connection signal="timeout" from="AttackTimer" to="." method="onAttackTimeout"]
